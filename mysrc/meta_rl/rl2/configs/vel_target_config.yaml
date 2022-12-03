@@ -1,0 +1,43 @@
+#RL^2 속도 목표 보상환경(vel) 설정
+
+#일반 환경 설정
+#--------------
+#meta-train task 갯수
+train_tasks: 300
+
+#meta-test task 갯수
+test_tasks: 15
+
+#은닉 유닛의 차원 수
+hidden_dim: 64
+
+
+#RL^2 환경설정
+#-------------
+rl2_params:
+    #train 반복 수
+    num_iterations: 1000
+    #train에서 수집할 sample 수
+    num_samples: 1200
+    #각 환경에에 대한 최대 step 수
+    max_step: 200
+    #train에 대한 task sample 갯수
+    meta_batch_size: 10
+    #early stop 조건 갯수
+    num_stop_conditions: 3
+    #early stop 조건에서 사용되는 목표 값
+    stop_goal: 25
+    
+#PPO 환경설정
+#------------
+ppo_params:
+    #감가율
+    gamma: 0.99
+    #반복 당 취할 epoch 수
+    num_epochs: 10
+    #각 epoch에서 취할 미니배치 갯수
+    mini_batch_size: 32
+    #Clipping에 쓰일 파라미터
+    clip_param: 0.3
+    #학습률
+    learning_rate: 0.0001
